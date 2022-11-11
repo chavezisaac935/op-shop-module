@@ -4,7 +4,7 @@
     "target": "es2020",
     "module": "esnext",
     "moduleResolution": "node16",
-    "strict": true,
+    "strict": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "experimentalDecorators": true,
@@ -19,5 +19,5 @@
     "skipLibCheck": true
   },
   "exclude": ["node_modules", "dist"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx", "src/components/Foo.client.tsx"]
 }
