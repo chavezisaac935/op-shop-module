@@ -1,9 +1,17 @@
 .wrapper {
-    h1 {
+    h2 {
         color: blue;
     }
     
     p{
         color: red;
     }
+    
+    .button {
+        .strikethrough {
+            text-decoration: line-through;
+        }
+    }
+
 }
+
