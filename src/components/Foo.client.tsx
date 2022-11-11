@@ -6,7 +6,13 @@ import InlineImage from './InlineImage.client';
 export default function Foo() {
 
   interface ShopOptions {
-    [index: number]: OptionData,
+    [index: number]: OptionData
+  }
+
+  interface CartOutput {
+    checkoutItemName: string,
+    typeLabel: string,
+    quantity: number
   }
   
   interface OptionData {
@@ -18,6 +24,7 @@ export default function Foo() {
     pricePerUnit: string,
     unitLabel: string,
     price: string
+    cartOutput: CartOutput,
   }
 
   const shopOptions: ShopOptions = [
@@ -30,6 +37,11 @@ export default function Foo() {
       pricePerUnit: '$34.99',
       unitLabel: '/BOTTLE',
       price: '$34.99',
+      cartOutput: {
+        checkoutItemName: 'MENO - Menopause Vitamin Capsules',
+        typeLabel: 'Sub (ships every month)',
+        quantity: 1
+      }
     }, {
       purchaseType: 'subscribe',
       itemQuantity: 2,
@@ -39,6 +51,11 @@ export default function Foo() {
       pricePerUnit: '$31.99',
       unitLabel: '/BOTTLE',
       price: '$63.98',
+      cartOutput: {
+        checkoutItemName: 'MENO - Menopause Vitamin Capsules',
+        typeLabel: 'Sub (ships every 2 months)',
+        quantity: 2
+      }
     }, {
       purchaseType: 'subscribe',
       itemQuantity: 3,
@@ -48,6 +65,11 @@ export default function Foo() {
       pricePerUnit: '$30',
       unitLabel: '/BOTTLE',
       price: '$90',
+      cartOutput: {
+        checkoutItemName: 'MENO - Menopause Vitamin Capsules',
+        typeLabel: 'Sub (ships every 3 months)',
+        quantity: 3
+      }
     }, {
       purchaseType: 'onetime',
       itemQuantity: 1,
@@ -56,6 +78,11 @@ export default function Foo() {
       pricePerUnit: '$39.99',
       unitLabel: '/BOTTLE',
       price: '$39.99',
+      cartOutput: {
+        checkoutItemName: 'MENO - Menopause Vitamin Capsules',
+        typeLabel: 'One time',
+        quantity: 1
+      }
     }, {
       purchaseType: 'onetime',
       itemQuantity: 2,
@@ -64,6 +91,11 @@ export default function Foo() {
       pricePerUnit: '$34.99',
       unitLabel: '/BOTTLE',
       price: '$69.98',
+      cartOutput: {
+        checkoutItemName: 'MENO - Menopause Vitamin Capsules',
+        typeLabel: 'One time',
+        quantity: 2
+      }
     }, {
       purchaseType: 'onetime',
       itemQuantity: 3,
@@ -72,6 +104,11 @@ export default function Foo() {
       pricePerUnit: '$33',
       unitLabel: '/BOTTLE',
       price: '$99',
+      cartOutput: {
+        checkoutItemName: 'MENO - Menopause Vitamin Capsules',
+        typeLabel: 'One time',
+        quantity: 3
+      }
     },
   ]
   const [purchaseType, setPurchaseType] = useState<string>("subscribe");
@@ -87,13 +124,24 @@ export default function Foo() {
   let selectionData = (aPurchaseType: string, aQuantity: number): OptionData => { return optionDataArray.find(option => (option.purchaseType === aPurchaseType && option.itemQuantity === aQuantity)); }
   let currentSelection: OptionData = selectionData(purchaseType, itemQuantity);
 
-  let addToShoppingCart = (option: OptionData):void => {
-    let arr = [...shoppingCart, option];
-    setShoppingCart(arr);
+  let cartButtonClickHandler = () => {
+     
+    let output = "Item Name | Type | Quantity \n";
+
+    output = output + addToShoppingCart(currentSelection).map((option) =>{console.log(optionToString(option)); return optionToString(option)}).join('\n')
+    
+    alert(output);
   }
 
-  let optionToString = (option:OptionData):string => {
-    return `${option.purchaseType} ${option.itemQuantity}`;
+  let addToShoppingCart = (option: OptionData):OptionData[] => {
+    let arr = [...shoppingCartArray, option];
+    setShoppingCart(arr);
+    return arr;
+  }
+
+  let optionToString = (opt: OptionData):string => {
+    // Return the built string
+    return `${opt.cartOutput.checkoutItemName} | ${opt.cartOutput.typeLabel} | ${opt.cartOutput.quantity}`;
   }
 
   return <div className={styles.wrapper}>
@@ -144,7 +192,7 @@ export default function Foo() {
 
     <p className={styles.pillLogo} dangerouslySetInnerHTML={{ __html: currentSelection?.installmentHelperText.replace(AFTERPAY_REGEX, AFTERPAY_LOGO) }}></p>
 
-    <button onClick={() => {addToShoppingCart(currentSelection); alert(shoppingCartArray.map((option) => optionToString(option))) }} className={styles.button}>Add to Cart - {<span className={styles.strikethrough}>{selectionData(purchaseType, itemQuantity).strikethrough}</span>} {selectionData(purchaseType, itemQuantity).price}</button>
+    <button onClick={() => {cartButtonClickHandler()}} className={styles.button}>Add to Cart - {<span className={styles.strikethrough}>{currentSelection.strikethrough}</span>} {currentSelection.price}</button>
 
-  </div>;
+  </div>
 }
