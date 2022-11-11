@@ -48,14 +48,11 @@ export default function Foo() {
         price: 99.00,
       }
   ]
-  const [purchaseType, setPurchaseType] = useState("subscribe");
-  const [itemQuantity, setItemQuantity] = useState(1);
+  const [purchaseType, setPurchaseType] = useState<string>("subscribe");
+  const [itemQuantity, setItemQuantity] = useState<number>(1);
 
   const shopDataArray = shopData as Array<any>;
-  let selectionData =  shopDataArray.find(price => (price.purchaseType === purchaseType && price.itemQuantity === itemQuantity));
-  let alternativeData =  shopDataArray.find(price => (price.purchaseType !== purchaseType && price.itemQuantity === itemQuantity));
-  
-  console.log(alternativeData.price)
+  let selectionData =  (aPurchaseType, aQuantity) => {return shopDataArray.find(price => (price.purchaseType === aPurchaseType && price.itemQuantity === aQuantity));}
 
   return <div className={styles.wrapper}>
 
@@ -67,7 +64,7 @@ export default function Foo() {
           <h3>Subscribe & Save</h3>
           <span>Easy to cancel, anytime</span>
           <span><strong>Free Shipping Always</strong></span>
-          <span className='price'>${}</span>
+          <span className='price'>${selectionData("subscribe", itemQuantity).price/itemQuantity}</span>
           <span className='unit'>/BOTTLE</span>
 
         </div>
@@ -80,7 +77,7 @@ export default function Foo() {
           <h3>One Time</h3>
           <span>One Time Purchase</span>
           <span><strong>Free Shipping Always</strong></span>
-          <span className='price'>$39.99</span>
+          <span className='price'>${selectionData("onetime", itemQuantity).price/itemQuantity}</span>
           <span className='unit'>/BOTTLE</span>
         </div>
       </label>
@@ -99,6 +96,6 @@ export default function Foo() {
       <label htmlFor="three">3</label>
     </div>
 
-    <button>Add to Cart - {selectionData.price}</button>
+    <button>Add to Cart - {selectionData(purchaseType, itemQuantity).price}</button>
   </div>;
 }
