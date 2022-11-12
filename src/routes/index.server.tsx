@@ -1,48 +1,94 @@
 import { useState } from 'react';
-import Foo from '../components/Foo.client';
-
-const prices = {
-  subscribe: {
-    qty: [
-    {
-      label: 1,
-      strikethrough: '39.99',
-      price: 34.99,
-    },
-    {
-      label: 2,
-      strikethrough: '79.98',
-      price: 63.98,
-    },
-    {
-      label: 3,
-      strikethrough: '120',
-      price: 90,
-    },
-  ]},
-  onetime: {
-    qty: [
-    {
-      label: 1,
-      strikethrough: '',
-      price: 39.99,
-    },
-    {
-      label: 2,
-      price: 69.98,
-    },
-    {
-      label: 3,
-      price: 99.00,
-    },
-  ]}
-}
-
-
+import { ShopOptions } from '../components/interfaces';
+import Shop from '../components/Shop.client';
 
 export default function Home() {
+  const shopOptions: ShopOptions = [
+    {
+      purchaseType: 'subscribe',
+      itemQuantity: 1,
+      quantityExplainerText: "1 bottle ships every 1 month",
+      installmentHelperText: '',
+      strikethrough: '$39.99',
+      pricePerUnit: '$34.99',
+      unitLabel: '/BOTTLE',
+      price: '$34.99',
+      cartOutput: {
+        checkoutItemName: 'MENO - Menopause Vitamin Capsules',
+        typeLabel: 'Sub (ships every month)',
+        quantity: 1
+      }
+    }, {
+      purchaseType: 'subscribe',
+      itemQuantity: 2,
+      quantityExplainerText: "2 bottles ship every 2 months",
+      installmentHelperText: '',
+      strikethrough: '$79.98',
+      pricePerUnit: '$31.99',
+      unitLabel: '/BOTTLE',
+      price: '$63.98',
+      cartOutput: {
+        checkoutItemName: 'MENO - Menopause Vitamin Capsules',
+        typeLabel: 'Sub (ships every 2 months)',
+        quantity: 2
+      }
+    }, {
+      purchaseType: 'subscribe',
+      itemQuantity: 3,
+      quantityExplainerText: "Congrats, you’ve selected our best value!<br> 3 bottles ship every 3 months",
+      installmentHelperText: '',
+      strikethrough: '$120',
+      pricePerUnit: '$30',
+      unitLabel: '/BOTTLE',
+      price: '$90',
+      cartOutput: {
+        checkoutItemName: 'MENO - Menopause Vitamin Capsules',
+        typeLabel: 'Sub (ships every 3 months)',
+        quantity: 3
+      }
+    }, {
+      purchaseType: 'onetime',
+      itemQuantity: 1,
+      installmentHelperText: '{{ afterpay }} available for orders above $45',
+      strikethrough: '',
+      pricePerUnit: '$39.99',
+      unitLabel: '/BOTTLE',
+      price: '$39.99',
+      cartOutput: {
+        checkoutItemName: 'MENO - Menopause Vitamin Capsules',
+        typeLabel: 'One time',
+        quantity: 1
+      }
+    }, {
+      purchaseType: 'onetime',
+      itemQuantity: 2,
+      installmentHelperText: 'Only $17.50 with {{ afterpay }} <br/> in 4 interest-free payments',
+      strikethrough: '$79.98',
+      pricePerUnit: '$34.99',
+      unitLabel: '/BOTTLE',
+      price: '$69.98',
+      cartOutput: {
+        checkoutItemName: 'MENO - Menopause Vitamin Capsules',
+        typeLabel: 'One time',
+        quantity: 2
+      }
+    }, {
+      purchaseType: 'onetime',
+      itemQuantity: 3,
+      installmentHelperText: 'Only $24.75 with {{ afterpay }} <br/>in 4 interest-free payments',
+      strikethrough: '$120',
+      pricePerUnit: '$33',
+      unitLabel: '/BOTTLE',
+      price: '$99',
+      cartOutput: {
+        checkoutItemName: 'MENO - Menopause Vitamin Capsules',
+        typeLabel: 'One time',
+        quantity: 3
+      }
+    },
+  ]
   
   return <div>
-    <Foo />
+    <Shop shopOptions={shopOptions}/>
   </div>;
 }
