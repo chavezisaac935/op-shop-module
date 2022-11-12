@@ -45,6 +45,7 @@ export default function Home() {
     }, {
       purchaseType: 'onetime',
       itemQuantity: 1,
+      quantityExplainerText: '',
       installmentHelperText: '{{ afterpay }} available for orders above $45',
       strikethrough: '',
       pricePerUnit: '$39.99',
@@ -57,6 +58,7 @@ export default function Home() {
     }, {
       purchaseType: 'onetime',
       itemQuantity: 2,
+      quantityExplainerText: '',
       installmentHelperText: 'Only $17.50 with {{ afterpay }} <br/> in 4 interest-free payments',
       strikethrough: '$79.98',
       pricePerUnit: '$34.99',
@@ -69,6 +71,7 @@ export default function Home() {
     }, {
       purchaseType: 'onetime',
       itemQuantity: 3,
+      quantityExplainerText: '',
       installmentHelperText: 'Only $24.75 with {{ afterpay }} <br/>in 4 interest-free payments',
       strikethrough: '$120',
       pricePerUnit: '$33',
