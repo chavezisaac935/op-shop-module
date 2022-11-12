@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { ShopOptions } from '../components/interfaces';
 import Shop from '../components/Shop.client';
+import {ShopOptions} from '../components/interfaces'
 
 export default function Home() {
   const shopOptions: ShopOptions = [

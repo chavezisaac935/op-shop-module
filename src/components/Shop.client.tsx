@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import styles from './index.module.scss';
 import AddToCartButton from './AddToCartButton.client';
-import {ShopOptions, OptionData} from './interfaces';
+import {OptionData} from './interfaces';
+import QualityRadioInput from './qualityRadioInput.client';
+import PurchaseTypeSelector from './PurchaseTypeSelector.client';
 
 export default function Shop({shopOptions}) {
   
@@ -16,24 +18,12 @@ export default function Shop({shopOptions}) {
   
   let selectionData = (aPurchaseType: string, aQuantity: number): OptionData => { return optionDataArray.find(option => (option.purchaseType === aPurchaseType && option.itemQuantity === aQuantity)); }
   let currentSelection: OptionData = selectionData(purchaseType, itemQuantity);
-
+  let {quantityExplainerText, installmentHelperText, price, strikethrough} = currentSelection;
   return <div className={styles.wrapper}>
     
     <div>
       <h2>1. Select Purchase Type</h2>
-      <div>
-        <input type="radio" id="subscribe" name='type' onChange={() => setPurchaseType("subscribe")} checked={purchaseType === "subscribe"} />
-        <label htmlFor="subscribe">
-          <div>
-            <h3>Subscribe & Save</h3>
-            <span>Easy to cancel, anytime</span>
-            <span><strong>Free Shipping Always</strong></span>
-            <span className='price'>{selectionData("subscribe", itemQuantity).pricePerUnit}</span>
-            <span className='unit'>{selectionData("subscribe", itemQuantity).unitLabel}</span>
-
-          </div>
-        </label>
-      </div>
+      <PurchaseTypeSelector setType={setPurchaseType} selectedType={purchaseType} optData={shopOptions} selectedQty={itemQuantity}/>
       <div>
         <input type="radio" id="onetime" name='type' onChange={() => setPurchaseType("onetime")} checked={purchaseType === "onetime"} />
         <label htmlFor="onetime">
@@ -48,24 +38,19 @@ export default function Shop({shopOptions}) {
     </div>
     <div>
       <h2>2. Quantity</h2>
-      <div>
-        <input type="radio" id="one" name='qty' onChange={() => setItemQuantity(1)} checked={itemQuantity === 1} />
-        <label htmlFor="one">1</label>
-      </div>
-      <div>
-        <input type="radio" id="two" name='qty' onChange={() => setItemQuantity(2)} checked={itemQuantity === 2} />
-        <label htmlFor="two">2</label>
-      </div>
-      <div>
-        <input type="radio" id="three" name='qty' onChange={() => setItemQuantity(3)} checked={itemQuantity === 3} />
-        <label htmlFor="three">3</label>
-      </div>
-      <p dangerouslySetInnerHTML={{__html: currentSelection.quantityExplainerText}}></p>
+      <QualityRadioInput setQty={setItemQuantity} selectedQty={itemQuantity} qty={1}/>
+      <QualityRadioInput setQty={setItemQuantity} selectedQty={itemQuantity} qty={2}/>
+      <QualityRadioInput setQty={setItemQuantity} selectedQty={itemQuantity} qty={3}/>
+
+      <p dangerouslySetInnerHTML={{__html: quantityExplainerText}}></p>
 
     </div>
 
-    <p className={styles.pillLogo} dangerouslySetInnerHTML={{ __html: currentSelection?.installmentHelperText.replace(AFTERPAY_REGEX, AFTERPAY_LOGO) }}></p>
-    <AddToCartButton selectedItem={currentSelection} setCart={setShoppingCart} cart={shoppingCart} strikethrogh={currentSelection.strikethrough} price={currentSelection.price}/>
+    <p className={styles.pillLogo} dangerouslySetInnerHTML={{ __html: installmentHelperText.replace(AFTERPAY_REGEX, AFTERPAY_LOGO) }}></p>
+
+    <AddToCartButton selectedItem={currentSelection} setCart={setShoppingCart} cart={shoppingCart}>
+      Add to Cart - {<span className={styles.strikethrough}>{strikethrough}</span>} {price}  
+    </AddToCartButton>
 
   </div>
 }
