@@ -18,8 +18,9 @@ export default function Shop({ shopOptions }) {
   const optionDataArray = shopOptions as Array<OptionData>;
 
   let findOption = (aPurchaseType: string, aQuantity: number): OptionData => { return optionDataArray.find(option => (option.purchaseType === aPurchaseType && option.itemQuantity === aQuantity)); }
-  let currentSelection: OptionData = findOption(purchaseType, itemQuantity);
-  let { quantityExplainerText, installmentHelperText, price, strikethrough } = currentSelection;
+  let selectedOption: OptionData = findOption(purchaseType, itemQuantity);
+  let { quantityExplainerText, installmentHelperText, price, strikethrough } = selectedOption;
+
   return <div className={styles.wrapper}>
     <div>
       <h2>1. Select Purchase Type</h2>
@@ -52,7 +53,7 @@ export default function Shop({ shopOptions }) {
       <p className={styles.pillLogo} dangerouslySetInnerHTML={{ __html: installmentHelperText.replace(AFTERPAY_REGEX, AFTERPAY_LOGO) }}></p>
     }
 
-    <AddToCartButton selectedItem={currentSelection} setCart={setShoppingCart} cart={shoppingCart}>
+    <AddToCartButton selectedItem={selectedOption} setCart={setShoppingCart} cart={shoppingCart}>
       Add to Cart - {<span className={styles.strikethrough}>{strikethrough}</span>} {price}
     </AddToCartButton>
 

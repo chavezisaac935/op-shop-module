@@ -4,8 +4,7 @@ interface ShopOptions {
 
 interface CartOutput {
     checkoutItemName: string,
-    typeLabel: string,
-    quantity: number
+    typeLabel: string
 }
 
 interface OptionData {

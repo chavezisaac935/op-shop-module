@@ -14,8 +14,7 @@ export default function Home() {
       price: '$34.99',
       cartOutput: {
         checkoutItemName: 'MENO - Menopause Vitamin Capsules',
-        typeLabel: 'Sub (ships every month)',
-        quantity: 1
+        typeLabel: 'Sub (ships every month)'
       }
     }, {
       purchaseType: 'subscribe',
@@ -28,8 +27,7 @@ export default function Home() {
       price: '$63.98',
       cartOutput: {
         checkoutItemName: 'MENO - Menopause Vitamin Capsules',
-        typeLabel: 'Sub (ships every 2 months)',
-        quantity: 2
+        typeLabel: 'Sub (ships every 2 months)'
       }
     }, {
       purchaseType: 'subscribe',
@@ -42,8 +40,7 @@ export default function Home() {
       price: '$90',
       cartOutput: {
         checkoutItemName: 'MENO - Menopause Vitamin Capsules',
-        typeLabel: 'Sub (ships every 3 months)',
-        quantity: 3
+        typeLabel: 'Sub (ships every 3 months)'
       }
     }, {
       purchaseType: 'onetime',
@@ -55,8 +52,7 @@ export default function Home() {
       price: '$39.99',
       cartOutput: {
         checkoutItemName: 'MENO - Menopause Vitamin Capsules',
-        typeLabel: 'One time',
-        quantity: 1
+        typeLabel: 'One time'
       }
     }, {
       purchaseType: 'onetime',
@@ -68,8 +64,7 @@ export default function Home() {
       price: '$69.98',
       cartOutput: {
         checkoutItemName: 'MENO - Menopause Vitamin Capsules',
-        typeLabel: 'One time',
-        quantity: 2
+        typeLabel: 'One time'
       }
     }, {
       purchaseType: 'onetime',
@@ -81,8 +76,7 @@ export default function Home() {
       price: '$99',
       cartOutput: {
         checkoutItemName: 'MENO - Menopause Vitamin Capsules',
-        typeLabel: 'One time',
-        quantity: 3
+        typeLabel: 'One time'
       }
     },
   ]
