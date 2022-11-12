@@ -386,6 +386,8 @@ p {
     border-radius: $border-radius;
     padding: $cta-padding;
     width: 100%;
+    text-transform: uppercase;
+    font-weight: 600;
 
     &__text-strikethrough {
         text-decoration: line-through;
