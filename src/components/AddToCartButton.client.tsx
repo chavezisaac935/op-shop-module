@@ -2,7 +2,7 @@ import styles from './index.module.scss';
 import {OptionData} from './interfaces';
 
 
-export default function AddToCartButton({selectedItem, setCart, cart, strikethrogh, price}){
+export default function AddToCartButton({selectedItem, setCart, cart, children}){
 
 
     const shoppingCartArray = cart as Array<OptionData>;
@@ -27,6 +27,6 @@ export default function AddToCartButton({selectedItem, setCart, cart, strikethro
     return <button 
         onClick={() => {cartButtonClickHandler()}} 
         className={styles.button}>
-            Add to Cart - {<span className={styles.strikethrough}>{strikethrogh}</span>} {price}
+            {children}
     </button>;
 }
