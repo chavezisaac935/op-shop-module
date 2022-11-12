@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './index.module.scss';
+import './index.scss';
 import AddToCartButton from './AddToCartButton.client';
 import { OptionData } from './interfaces';
 import QualityRadioInput from './qualityRadioInput.client';
@@ -21,7 +21,7 @@ export default function Shop({ shopOptions }) {
   let selectedOption: OptionData = findOption(purchaseType, itemQuantity);
   let { quantityExplainerText, installmentHelperText, price, strikethrough } = selectedOption;
 
-  return <div className={styles.wrapper}>
+  return <div>
     <div>
       <h2>1. Select Purchase Type</h2>
       <PurchaseTypeSelector setType={setPurchaseType} selectedType={purchaseType} type={"subscribe"}>
@@ -50,11 +50,11 @@ export default function Shop({ shopOptions }) {
     </div>
 
     {installmentHelperText &&
-      <p className={styles.pillLogo} dangerouslySetInnerHTML={{ __html: installmentHelperText.replace(AFTERPAY_REGEX, AFTERPAY_LOGO) }}></p>
+      <p dangerouslySetInnerHTML={{ __html: installmentHelperText.replace(AFTERPAY_REGEX, AFTERPAY_LOGO) }}></p>
     }
 
     <AddToCartButton selectedItem={selectedOption} setCart={setShoppingCart} cart={shoppingCart}>
-      Add to Cart - {<span className={styles.strikethrough}>{strikethrough}</span>} {price}
+      Add to Cart - {<span className='cart-cta__text-strikethrough'>{strikethrough}</span>} {price}
     </AddToCartButton>
 
   </div>

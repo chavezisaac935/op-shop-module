@@ -1,4 +1,3 @@
-import styles from './index.module.scss';
 import { OptionData } from './interfaces';
 
 
@@ -51,9 +50,9 @@ export default function AddToCartButton({ selectedItem, setCart, cart, children 
   }
   
   return (
-    <button
-      onClick={() => { cartButtonClickHandler() }}
-      className={styles.button}>
+    <button 
+      className='cart-cta'
+      onClick={() => { cartButtonClickHandler() }}>
       {children}
     </button>);
 }
