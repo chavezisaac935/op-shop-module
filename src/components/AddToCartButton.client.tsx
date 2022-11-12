@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import styles from './index.module.scss';
 import { OptionData } from './interfaces';
 
@@ -20,15 +19,15 @@ export default function AddToCartButton({ selectedItem, setCart, cart, children 
     // Return the built string
     return `${opt.cartOutput.checkoutItemName} | ${opt.cartOutput.typeLabel} | ${qty}`;
   }
-  // Define header structure
-  const headerOutput = "Item Name | Type | Qty";
-  let groupableFound = false;
-
+  
   let cartToString = (cart: OptionData[]) => {
+    // Define header structure
+    const headerOutput = "Item Name | Type | Qty";
+    let groupableFound = false;
     let totalItemQty = cart.filter((groupableCartItem) => groupableCartItem[GROUP.key] === GROUP.value)
                            .reduce((acc, next)=> acc += next[GROUP.sumKey], 0);
 
-    return cart.reduce((outputString, cartItem) => {
+    return headerOutput + cart.reduce((outputString, cartItem) => {
       if(cartItem[GROUP.key] === GROUP.value){
         if(!groupableFound){
           groupableFound = true;
@@ -43,6 +42,7 @@ export default function AddToCartButton({ selectedItem, setCart, cart, children 
   let addToShoppingCart = () => {
       const updatedCart = [...shoppingCartArray, selectedItem];
       setCart(updatedCart);
+      // Since React hooks are asynchronous it is important to return a copy of the updated cart
       return updatedCart;
   }
 
