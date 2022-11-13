@@ -1,3 +1,7 @@
+// Bookmania & Proxima Nova look alike fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&family=Tinos:wght@700&display=swap');
+
 // Used simple styles as a starting point, borrowing from Tailwinds preflight styles
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -370,11 +374,26 @@ video {
 // Styles
 
 $meno-blue: #5c72b6;
+$medium-gray: #555;
+$dark-gray: #4d4d4d;
+
 $border-radius: 50px;
 $cta-padding: 15px 0;
+$proxima-nova-substitute: 'Figtree';
+$bookmania-substitute: 'Tinos';
 
-h2 {
-    color: green;
+.shop-selection {
+    font-family: $proxima-nova-substitute, sans-serif;
+    &__section-title {
+        font-family: $bookmania-substitute, serif;
+        font-weight: 700;
+        color: $medium-gray;
+    }
+
+    &__option-title {
+        color:#4d4d4d;
+
+    }
 }
 
 p {
@@ -382,16 +401,19 @@ p {
 }
 
 .cart-cta {
+    font-family: $proxima-nova-substitute, sans-serif;
     background-color: $meno-blue;
     border-radius: $border-radius;
     padding: $cta-padding;
     width: 100%;
     text-transform: uppercase;
     font-weight: 600;
-
+    color: white;
     &__text-strikethrough {
+        font-weight: 400;
         text-decoration: line-through;
         margin: 0 2px;
+        opacity: .7;
     }
 }
 
