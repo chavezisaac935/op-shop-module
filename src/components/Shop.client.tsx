@@ -1,7 +1,7 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable import/no-unresolved */
 import { useState } from "react";
-import "./index.scss";
+
 import AddToCartButton from "./AddToCartButton.client";
 import { CartItem } from "./interfaces";
 import QualityRadioInput from "./qualityRadioInput.client";
