@@ -7,7 +7,6 @@ const GROUP = {
   sumKey: "itemQuantity",
 };
 
-
 const optionToString = (opt: OptionData): string => {
   // Return the built string
   return `${opt.cartOutput.checkoutItemName} | ${opt.cartOutput.typeLabel} | ${opt.itemQuantity}`;
@@ -44,7 +43,5 @@ const cartToString = (cart: OptionData[]) => {
     }, "")
   );
 };
-
-
 
 export default { cartToString };

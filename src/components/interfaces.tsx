@@ -1,5 +1,5 @@
-interface ShopOptions {
-  [index: number]: OptionData;
+interface ShopData {
+  [index: number]: CartItem;
 }
 
 interface CartOutput {
@@ -7,7 +7,7 @@ interface CartOutput {
   typeLabel: string;
 }
 
-interface OptionData {
+interface CartItem {
   purchaseType: string;
   itemQuantity: number;
   quantityExplainerText?: string;
@@ -19,4 +19,4 @@ interface OptionData {
   cartOutput: CartOutput;
 }
 
-export type { ShopOptions, CartOutput, OptionData };
+export type { ShopData, CartOutput, CartItem };

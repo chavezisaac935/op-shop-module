@@ -1,10 +1,10 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable import/no-unresolved */
 import Shop from "../components/Shop.client";
-import { ShopOptions } from "../components/interfaces";
+import { ShopData } from "../components/interfaces";
 
 export default function Home() {
-  const shopOptions: ShopOptions = [
+  const shopData: ShopData = [
     {
       purchaseType: "subscribe",
       itemQuantity: 1,
@@ -96,7 +96,7 @@ export default function Home() {
 
   return (
     <div>
-      <Shop shopOptions={shopOptions} />
+      <Shop shopData={shopData} />
     </div>
   );
 }

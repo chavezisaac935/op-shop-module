@@ -9,38 +9,152 @@ $meno-blue: #5c72b6;
 $medium-gray: #555;
 $dark-gray: #4d4d4d;
 
-$border-radius: 50px;
+$border-radius-pill: 50px;
+$border-radius-md: 12px;
 $cta-padding: 15px 0;
 $proxima-nova-substitute: 'Figtree';
 $bookmania-substitute: 'Tinos';
+$border-thin: #f7edfe 1px solid; 
+
+body{
+    height: 100vh;
+    background-color: #faf7f7;
+}
 
 .shop-selection {
     font-family: $proxima-nova-substitute, sans-serif;
     &__section-title {
         font-family: $bookmania-substitute, serif;
+        font-size: 20px;
         font-weight: 700;
         color: $medium-gray;
     }
 
+    &__section {
+        padding: 16px;
+    }
+    
+    &__section + &__section {
+        border-top: $border-thin;
+    }
+    
     &__option-title {
         color:#4d4d4d;
+        
+    }
+    &__input {
+        background-color: #ffffff;
+        width: 90%;
+        margin: 0 auto;
+        border-radius: $border-radius-md;
+        border: $border-thin;
+    }
 
+    &__section--qty {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__qty-radiogroup {
+        display: flex;
+        flex-direction: row;
     }
 }
 
-p {
-    color: red;
+.quality-selector {
+    & input[type="radio"] {
+        opacity: 0;
+        position: fixed;
+        width: 0;
+    }
+
+    & input[type="radio"]:checked + label {
+        background-color: $meno-blue;
+        border-radius: 20px;
+        border-color: #613d7a;
+        color: white;
+    }
+
+    &__label {
+        text-align: center;
+        color: $meno-blue;
+        line-height: 33px;
+        width: 45px;
+        margin: 0;
+        padding: 0;
+        font-size: 19px;
+        font-weight: 600;
+        box-sizing: border-box;
+        display: inline-block;
+        // padding: 10px 20px;
+        border-radius: 15px;
+        border: $border-thin
+    }
 }
+
+.type-selector {
+    margin-top: 12px;
+    
+    &__radio-container {
+        flex-grow: 0;
+        width: 20px;
+    }
+    
+    &__radio {
+        width: 20px;
+    }
+    
+    &__label-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-grow: 1;
+    }
+    
+    &__label {
+        flex-grow: 1;
+        width: 75%;
+    }
+
+    &__label-title {
+        font-size: 20px;
+        color: #4d4d4d;
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+        line-height: normal;
+    }
+    
+    &__price {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__price-ammount {
+        font-size: 20px;
+        color: #4d4d4d;
+        font-weight: 600;
+    }
+    
+    &__price-unit {
+        font-size: 15px;
+        font-weight: 400;
+    }
+}
+
 
 .cart-cta {
     font-family: $proxima-nova-substitute, sans-serif;
     background-color: $meno-blue;
-    border-radius: $border-radius;
+    border-radius: $border-radius-pill;
     padding: $cta-padding;
-    width: 100%;
+    width: 90%;
+    display: block;
+    margin: 15px auto 0;
     text-transform: uppercase;
     font-weight: 600;
     color: white;
+
     &__text-strikethrough {
         font-weight: 400;
         text-decoration: line-through;
