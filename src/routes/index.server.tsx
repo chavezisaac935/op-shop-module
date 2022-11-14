@@ -1,3 +1,5 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable import/no-unresolved */
 import Shop from "../components/Shop.client";
 import { ShopOptions } from "../components/interfaces";
 

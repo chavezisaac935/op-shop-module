@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import AddToCartButton from "./AddToCartButton.client";
 // import '../components/index.scss';
 
