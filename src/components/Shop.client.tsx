@@ -5,7 +5,7 @@ import { useState } from "react";
 import AddToCartButton from "./AddToCartButton.client";
 import { CartItem } from "../assets/interfaces";
 import QualityRadioInput from "./qualityRadioInput.client";
-import PurchaseTypeSelector from "./PurchaseTypeSelector.client";
+import PurchaseTypeSelector from "./TypeRadioInput.client";
 import shoppingFunction from "../assets/cart-helper";
 
 export default function Shop({ shopData }) {
