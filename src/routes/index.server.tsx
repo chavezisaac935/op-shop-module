@@ -29,7 +29,7 @@ export default function Home() {
       unitLabel: "/BOTTLE",
       price: "$63.98",
       cartOutput: {
-        checkoutItemName: "MENO - Menopause Vitamin Capsules",
+        checkoutItemName: "MENO Capsules - 2 Bottle Subscription",
         typeLabel: "Sub (ships 2 months)",
       },
     },
@@ -44,7 +44,7 @@ export default function Home() {
       unitLabel: "/BOTTLE",
       price: "$90",
       cartOutput: {
-        checkoutItemName: "MENO - Menopause Vitamin Capsules",
+        checkoutItemName: "MENO Capsules - 3 Bottle Subscription",
         typeLabel: "Sub (ships 3 months)",
       },
     },
