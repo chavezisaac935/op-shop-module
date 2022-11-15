@@ -1,37 +1,17 @@
-# TypeScript Example
+# O Positiv Shop Module
 
-Hydrogen is a React framework and SDK that you can use to build fast and dynamic Shopify custom storefronts.
+This is a simple cloned module that allows a user to select between different ways of purchasing O Positiv products.
 
-[Check out the docs](https://shopify.dev/custom-storefronts/hydrogen)
+## How to run
 
-[Run this template in JavaScript on StackBlitz](https://stackblitz.com/github/Shopify/hydrogen/tree/dist/templates/hello-world-js?file=package.json)
+Clone the repository and then run `npm install`, once the dependencies have installed you may run `npm run dev`. This will locally serve the app for review.
 
-[Run this template in TypeScript on StackBlitz](https://stackblitz.com/github/Shopify/hydrogen/tree/dist/templates/hello-world-ts?file=package.json)
+## Some of the tools used
 
-## Getting started
+Here are some of the tools that made this possible
 
-**Requirements:**
-
-- Node.js version 16.14.0 or higher
-- Yarn
-
-```bash
-npm init @shopify/hydrogen@latest --template hello-world-ts
-```
-
-Remember to update `hydrogen.config.ts` with your shop's domain and Storefront API token!
-
-## Building for production
-
-```bash
-yarn build
-```
-
-## Previewing a production build
-
-To run a local preview of your Hydrogen app in an environment similar to Oxygen, build your Hydrogen app and then run `yarn preview`:
-
-```bash
-yarn build
-yarn preview
-```
+- React
+- Hydrogen
+- Typescript
+- Sass
+- Adobe Fonts

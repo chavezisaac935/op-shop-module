@@ -1,7 +1,7 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable import/no-unresolved */
 import Shop from "../components/Shop.client";
-import { ShopData } from "../components/interfaces";
+import { ShopData } from "../assets/interfaces";
 
 export default function Home() {
   const shopData: ShopData = [

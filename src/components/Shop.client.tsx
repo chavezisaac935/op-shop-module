@@ -3,10 +3,10 @@
 import { useState } from "react";
 
 import AddToCartButton from "./AddToCartButton.client";
-import { CartItem } from "./interfaces";
+import { CartItem } from "../assets/interfaces";
 import QualityRadioInput from "./qualityRadioInput.client";
 import PurchaseTypeSelector from "./PurchaseTypeSelector.client";
-import shoppingFunction from "./cart-helper";
+import shoppingFunction from "../assets/cart-helper";
 
 export default function Shop({ shopData }) {
   const [purchaseType, setPurchaseType] = useState<string>("subscribe");
