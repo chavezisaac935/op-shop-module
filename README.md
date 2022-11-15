@@ -15,3 +15,6 @@ Here are some of the tools that made this possible
 - Typescript
 - Sass
 - Adobe Fonts
+
+## Screenshots
+![Screenshot 2022-11-14 at 11 51 19 PM-1](https://user-images.githubusercontent.com/90437318/201860864-fb0f92da-e0c9-4afd-9434-872ebda80b68.png)
