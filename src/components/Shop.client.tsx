@@ -47,12 +47,16 @@ export default function Shop({ shopData }) {
     <div className="shop-selection">
       <div className="shop-selection__input">
         <div className="shop-selection__section shop-selection__section--type">
-          <h2 className="shop-selection__section-title">
-            1. Select Purchase Type
-          </h2>
+          <div className="shop-selection__title-group">
+            <span className="shop-selection__section-number">1.</span>
+            <h2 className="shop-selection__section-title">
+              Select Purchase Type
+            </h2>
+          </div>
           <PurchaseTypeSelector
             title={"Subscribe & Save"}
             descrip={"Easy to cancel, anytime"}
+            strongDescrip={"Free Shipping Always"}
             price={findOption("subscribe", itemQuantity).pricePerUnit}
             priceLabel={findOption("subscribe", itemQuantity).unitLabel}
             onPress={() => setPurchaseType("subscribe")}
@@ -62,6 +66,7 @@ export default function Shop({ shopData }) {
           <PurchaseTypeSelector
             title={"One Time"}
             descrip={"One Time Purchase"}
+            strongDescrip={""}
             price={findOption("onetime", itemQuantity).pricePerUnit}
             priceLabel={findOption("onetime", itemQuantity).unitLabel}
             onPress={() => setPurchaseType("onetime")}
@@ -69,40 +74,49 @@ export default function Shop({ shopData }) {
             thisOptionType={"onetime"}
           />
         </div>
-        <div className="shop-selection__section shop-selection__section--qty">
-          <h2 className="shop-selection__section-title">2. Quantity</h2>
-          <div className="shop-selection__qty-radiogroup">
-            <QualityRadioInput
-              setQty={setItemQuantity}
-              selectedQty={itemQuantity}
-              qty={1}
-            />
-            <QualityRadioInput
-              setQty={setItemQuantity}
-              selectedQty={itemQuantity}
-              qty={2}
-            />
-            <QualityRadioInput
-              setQty={setItemQuantity}
-              selectedQty={itemQuantity}
-              qty={3}
-            />
+        <div className="shop-selection__section">
+          <div className="shop-selection__section--qty">
+            <div className="shop-selection__title-group">
+              <span className="shop-selection__section-number">2.</span>
+              <h2 className="shop-selection__section-title">Quantity</h2>
+            </div>
+            <div className="shop-selection__qty-radiogroup">
+              <QualityRadioInput
+                setQty={setItemQuantity}
+                selectedQty={itemQuantity}
+                qty={1}
+              />
+              <QualityRadioInput
+                setQty={setItemQuantity}
+                selectedQty={itemQuantity}
+                qty={2}
+              />
+              <QualityRadioInput
+                setQty={setItemQuantity}
+                selectedQty={itemQuantity}
+                qty={3}
+              />
+            </div>
           </div>
+          {quantityExplainerText ? (
+            <p
+              className="shop-selection__blurb"
+              dangerouslySetInnerHTML={{ __html: quantityExplainerText }}
+            ></p>
+          ) : null}
         </div>
-        {quantityExplainerText ? (
-          <p dangerouslySetInnerHTML={{ __html: quantityExplainerText }}></p>
-        ) : null}
       </div>
 
       {installmentHelperText ? (
-        <p
+        <div
+          className="shop-selection__helper-text"
           dangerouslySetInnerHTML={{
             __html: installmentHelperText.replace(
               AFTERPAY_REGEX,
               AFTERPAY_LOGO
             ),
           }}
-        ></p>
+        ></div>
       ) : null}
 
       <AddToCartButton
@@ -111,6 +125,9 @@ export default function Shop({ shopData }) {
         strikethrough={strikethrough}
         price={price}
       />
+      <div className="shop-selection__guarantee">
+        60-day happiness guaranteed
+      </div>
     </div>
   );
 }

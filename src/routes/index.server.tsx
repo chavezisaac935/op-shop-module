@@ -22,7 +22,7 @@ export default function Home() {
     {
       purchaseType: "subscribe",
       itemQuantity: 2,
-      quantityExplainerText: "2 bottles ship every 2 months",
+      quantityExplainerText: "2 bottles ship 2 months",
       installmentHelperText: "",
       strikethrough: "$79.98",
       pricePerUnit: "$31.99",
@@ -30,7 +30,7 @@ export default function Home() {
       price: "$63.98",
       cartOutput: {
         checkoutItemName: "MENO - Menopause Vitamin Capsules",
-        typeLabel: "Sub (ships every 2 months)",
+        typeLabel: "Sub (ships 2 months)",
       },
     },
     {
@@ -45,7 +45,7 @@ export default function Home() {
       price: "$90",
       cartOutput: {
         checkoutItemName: "MENO - Menopause Vitamin Capsules",
-        typeLabel: "Sub (ships every 3 months)",
+        typeLabel: "Sub (ships 3 months)",
       },
     },
     {
@@ -67,7 +67,7 @@ export default function Home() {
       itemQuantity: 2,
       quantityExplainerText: "",
       installmentHelperText:
-        "Only $17.50 with {{ afterpay }} <br/> in 4 interest-free payments",
+        "Only <span class='strong'>$17.50</span> with {{ afterpay }} <br/> in 4 interest-free payments",
       strikethrough: "$79.98",
       pricePerUnit: "$34.99",
       unitLabel: "/BOTTLE",
@@ -82,7 +82,7 @@ export default function Home() {
       itemQuantity: 3,
       quantityExplainerText: "",
       installmentHelperText:
-        "Only $24.75 with {{ afterpay }} <br/>in 4 interest-free payments",
+        "Only <span class='strong'>$24.75</span> with {{ afterpay }} <br/>in 4 interest-free payments",
       strikethrough: "$120",
       pricePerUnit: "$33",
       unitLabel: "/BOTTLE",
